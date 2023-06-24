@@ -1,0 +1,25 @@
+<!--put a div in the middle of the page, don't use bootstrap-->
+<h1 class="title">K8S DEPLOY TEST</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <p class="lead">{{selectedJoke}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--place a button, not a div, under the div-->
+
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <button (click)="randomJoke()" class="text-center button">
+                <p class="btn btn-primary text-center">Random Joke</p>
+            </button>
+        </div>
+    </div>
+</div>
+

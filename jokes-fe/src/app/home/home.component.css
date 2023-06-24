@@ -1,0 +1,47 @@
+/**
+write container class here
+it places the div in the middle of the page
+ */
+
+.title {
+  font-size: 1.5em;
+  text-align: center;
+  color: #c23030;
+  font-weight: bold;
+}
+
+.container {
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: #c23030 solid 1px;
+  border-radius: 5px;
+  height: 300px;
+  width: 300px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+style the button with button class,
+I want it red (a good looking red, not the
+default one) and with a black border
+and I want it to be 100px wide
+I also want rounded corners.
+ */
+.button {
+  background-color: #c23030;
+  border: black solid 1px;
+  width: 100px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+

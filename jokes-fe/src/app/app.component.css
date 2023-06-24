@@ -1,0 +1,11 @@
+/**
+set a global
+font style for the app
+i want it to be very funny
+ */
+
+body {
+  font-size: 1.5em;
+  background-color: #f2f2f2;
+  font-family: "Apple Braille", serif;
+ }
