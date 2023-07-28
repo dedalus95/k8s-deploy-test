@@ -1,5 +1,5 @@
 {
-  "name": "deploy-k8-s",
+  "name": "jokes-fe",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

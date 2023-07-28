@@ -24,7 +24,13 @@ public class JokeController implements IJokeController{
     @Override
     public ResponseEntity<JokeInfo> getRandomJoke() {
 
-        Long id = Math.round(Math.random() * jokeRepository.count());
+        Joke joke = jokeRepository.findFirstByOrderByIdDesc();
+
+        if(joke == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        Long id = Math.round(Math.random() * joke.getId());
         //find one random joke
         if (existsById(id)) {
             return ResponseEntity.ok(jokeRepository.findJokeById(id));

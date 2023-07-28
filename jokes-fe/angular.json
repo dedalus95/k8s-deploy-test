@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "deployK8S": {
+    "jokes-fe": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/deploy-k8-s",
+            "outputPath": "dist/jokes-fe",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -31,6 +31,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.development.ts",
+                  "with": "src/environments/environment.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -66,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "deployK8S:build:production"
+              "browserTarget": "jokes-fe:build:production"
             },
             "development": {
-              "browserTarget": "deployK8S:build:development"
+              "browserTarget": "jokes-fe:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "deployK8S:build"
+            "browserTarget": "jokes-fe:build"
           }
         },
         "test": {
@@ -100,5 +106,6 @@
         }
       }
     }
-  }
+  },
+  "defaultProject": "jokes-fe"
 }

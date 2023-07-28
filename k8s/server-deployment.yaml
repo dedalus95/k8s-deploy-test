@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      containers:
+        - name: server
+          image: dedalus95/jokes-be
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DATASOURCE_USERNAME
+              value: root
+            - name: DATASOURCE_URL
+              value: jdbc:mysql://mysql-cluster-ip-service:3306/jokes?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+            - name: DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysqlpassword
+                  key: password
